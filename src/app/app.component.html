@@ -1,0 +1,53 @@
+<button (click)="changeOrientation()">{{ btnText }} </button>
+<div [ngClass]="{landscape: isLandscape, vertical: !isLandscape}">
+    <div class="row">
+        <div class="col">
+            <input type="text" class="col-11" [(ngModel)]="lastOperation" name="lastOperation" disabled>
+            <input type="text" class="col-11" [(ngModel)]="valor" name="valor" disabled>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class=" col-1" *ngIf="isLandscape" (click)="power(2)"> x^2</button>
+            <button class=" col-3" (click)="resetValues()"> AC </button>
+            <button class=" col-3" (click)="negativePositive()"> +/- </button>
+            <button class=" col-3" (click)="getPercentage()"> % </button>
+            <button class="principal col-1" (click)="setOperator('/')"> ÷ </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class=" col-1" *ngIf="isLandscape" (click)="power(3)"> x^3</button>
+            <button class=" col-3" (click)="setValue('7')"> 7 </button>
+            <button class=" col-3" (click)="setValue('8')"> 8 </button>
+            <button class=" col-3" (click)="setValue('9')"> 9 </button>
+            <button class="principal col-1" (click)="setOperator('*')"> x </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class=" col-1" *ngIf="isLandscape" (click)="root(2)">√</button>
+            <button class=" col-3" (click)="setValue('4')"> 4 </button>
+            <button class=" col-3" (click)="setValue('5')"> 5 </button>
+            <button class=" col-3" (click)="setValue('6')"> 6 </button>
+            <button class="principal col-1" (click)="setOperator('-')"> - </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class=" col-1" *ngIf="isLandscape" (click)="root(3)"> 3√</button>
+            <button class=" col-3" (click)="setValue('1')"> 1 </button>
+            <button class=" col-3" (click)="setValue('2')"> 2 </button>
+            <button class=" col-3" (click)="setValue('3')"> 3 </button>
+            <button class="principal col-1" (click)="setOperator('+')"> + </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class=" col-1" *ngIf="isLandscape" (click)="pi()"> π</button>
+            <button class=" col-6" (click)="setValue('0')"> 0 </button>
+            <button class=" col-3" (click)="setValue('.')" [disabled]="containDot"> . </button>
+            <button class=" principal col-1" (click)="finishOperation()"> =</button>
+        </div>
+    </div>
+</div>
